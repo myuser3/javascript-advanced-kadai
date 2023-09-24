@@ -2,7 +2,7 @@
 let untyped = '';
 let typed = '';
 let score = 0;
-let plus = 0;
+//let plus = 0;
 
 // 必要なHTML要素の取得
 const untypedfield = document.getElementById('untyped');
@@ -75,14 +75,14 @@ if(e.key !== untyped.substring(0,1)) {
     createText();
   }
 };
-
+/*
 // 文字数をカウントする
 window.addEventListener('keypress', e => {
   console.log(e.key);
     plus++;
     plusfield.textContent = plus;
 });
-
+*/
 // タイピングスキルのランクを判定
 const rankCheck = score => {
 
@@ -155,3 +155,12 @@ start.addEventListener('click', () => {
 });
 
 untypedfield.textContent = 'スタートボタンで開始';
+
+let plus = 0;
+const plusfield = document.getElementById('plus');
+
+window.addEventListener('keypress', e => {
+  console.log(e.key);
+    plus++;
+    plusfield.textContent = plus;
+});
