@@ -2,7 +2,6 @@
 let untyped = '';
 let typed = '';
 let score = 0;
-let plus = 0; //右辺は''の可能性あり
 
 // 必要なHTML要素の取得
 const untypedfield = document.getElementById('untyped');
@@ -49,8 +48,6 @@ const createText = () => {
   untypedfield.textContent = untyped;
 };
 
-//createText(); ここ2-7にて一度省略
-
 // キー入力の判定
 const keyPress = e => {
 
@@ -79,20 +76,20 @@ if(e.key !== untyped.substring(0,1)) {
 };
 
 // 文字数のカウント
-plus++;
+const plus = document.getElementById('plus');
+
+// HTML要素がクリックされた時にイベント処理を実行する
+plus.addEventListener('click', () => {
+  // 入力された文字列を取得する
+  console.log(text.length);
+});
 
 // タイピングスキルのランクを判定
 const rankCheck = score => {
-  /*
-  //スコアの値を返す
-  return `${score}文字打てました！`
-  */
+
   // テキストを格納する変数を作る
   let text = '';
 
-  // スコアに応じて異なるメッセージを変数textに格納する
-  // バックスラッシュの入力方法「\」
-  // Macの場合。optionを押しながら¥マークを押すと表示される。
   if(score < 100) {
     text = `あなたのランクはCです。\nBランクまであと${100 - score}文字です。`;
   } else if(score < 200) {
@@ -129,7 +126,7 @@ const timer = () => {
   const id = setInterval(() => {
 
     // カウントダウンする
-    time--; //1つずつ減らすことを意味していた、と記憶している
+    time--; 
     count.textContent = time;
 
     // カウントが0になったらタイマーを停止する
@@ -149,7 +146,7 @@ start.addEventListener('click', () => {
   createText();
 
   // 文字数を表示する
-  console.log(plus);
+  //console.log(text.length);
 
   // 「スタート」ボタンを非表示にする
   start.style.display = 'none';
