@@ -2,6 +2,7 @@
 let untyped = '';
 let typed = '';
 let score = 0;
+let plus = 0;
 
 // 必要なHTML要素の取得
 const untypedfield = document.getElementById('untyped');
@@ -75,13 +76,11 @@ if(e.key !== untyped.substring(0,1)) {
   }
 };
 
-// 文字数のカウント
-const plus = document.getElementById('plus');
-
-// HTML要素がクリックされた時にイベント処理を実行する
-plus.addEventListener('click', () => {
-  // 入力された文字列を取得する
-  console.log(text.length);
+// 文字数をカウントする
+window.addEventListener('keypress', e => {
+  console.log(e.key);
+    plus++;
+    plusfield.textContent = plus;
 });
 
 // タイピングスキルのランクを判定
