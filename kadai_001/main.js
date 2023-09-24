@@ -157,6 +157,7 @@ start.addEventListener('click', () => {
 untypedfield.textContent = 'スタートボタンで開始';
 
 let plus = 0;
+let plusfield = 0;
 const plusfield = document.getElementById('plus');
 
 window.addEventListener('keypress', e => {
